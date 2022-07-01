@@ -8,10 +8,10 @@ const cors = require("cors");
 
 const {API_PORT} = process.env;
 const port = process.env.PORT || API_PORT;
-const authRoutes = require('./routes/auth/auth.routes')
-const requestRoutes = require('./routes/auth/request.routes')
-const categoriesRoute = require('./routes/auth/categories.routes')
-const issuesRoute = require('./routes/auth/issue.routes')
+const authRoutes = require('./routes/auth.routes')
+const requestRoutes = require('./routes/request.routes')
+const categoriesRoute = require('./routes/categories.routes')
+const issuesRoute = require('./routes/issue.routes')
 const propertyRoute = require('./routes/property.routes')
 const planRoute = require('./routes/plan.routes')
 const contactRoute = require('./routes/contact.routes')

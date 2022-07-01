@@ -1,7 +1,7 @@
-const {router} = require("../../app")
-const RequestController = require("../../controllers/request.controller")
-const {fileUpload}=require("../../middleware/fileupload")
-const { requireSignin } = require('../../middleware/authorization');
+const {router} = require("../app")
+const RequestController = require("../controllers/request.controller")
+const {fileUpload}=require("../middleware/fileupload")
+const { requireSignin } = require('../middleware/authorization');
 const cpUpload = fileUpload.fields([{name: 'requestPhoto', maxCount: 8}])
 
 router.post("/landlord/maintenance_request",requireSignin,cpUpload, RequestController.insertRequest);
