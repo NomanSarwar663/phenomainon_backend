@@ -44,19 +44,36 @@ async function register(data) {
     password: await bcrypt.hash(password, 10),
   });
 
-  // wellComeEmail({
-  //   firstName,
-  //   lastName,
-  //   email,
-  //   emailVerifyToken,
-  //   verifyEmailLink: `${process.env.APP_URL}/frontend-url`,
-  // });
+  const user = await User.findOne({ email });
 
-  return formatResponse(
-    201,
-    "Success",
-    "Plz verify your account. Tech-inferno sent you a six digit code"
-  );
+  if (user) {
+    const accessToken = jwt.sign(
+      { user_id: user._id, email },
+      process.env.JWT_TOKEN_KEY,
+      {
+        expiresIn: "24h",
+      }
+    );
+
+    // wellComeEmail({
+    //   firstName,
+    //   lastName,
+    //   email,
+    //   emailVerifyToken,
+    //   verifyEmailLink: `${process.env.APP_URL}/frontend-url`,
+    // });
+
+    return formatResponse(
+      201,
+      "Success",
+      "Plz verify your account. Phenomainon sent you a six digit code",
+      {
+        user,
+        accessToken,
+      }
+    );
+  }
+  throw new BaseError("Unable to register a user", 400);
 }
 
 async function login(data) {
@@ -68,11 +85,11 @@ async function login(data) {
   const user = await User.findOne({ email });
 
   if (user && (await bcrypt.compare(password, user.password))) {
-    token = jwt.sign(
-      { _id: user._id, role: user.role, email: user.email },
+    token = accessToken = jwt.sign(
+      { user_id: user._id, email },
       process.env.JWT_TOKEN_KEY,
       {
-        expiresIn: "20h",
+        expiresIn: "24h",
       }
     );
 
