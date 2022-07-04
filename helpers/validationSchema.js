@@ -64,7 +64,18 @@ const changePasswordSchema = Joi.object({
 const updateUserSchema = Joi.object({
   firstName: validationValues.firstName,
   lastName: validationValues.lastName,
-  phoneNo: Joi.string().min(0).max(15)
+  phoneNo: Joi.string().min(0).max(15),
+});
+
+const contactUsSchema = Joi.object({
+  firstName: validationValues.firstName,
+  lastName: validationValues.lastName,
+  email: validationValues.email,
+  message: Joi.string().min(10).required().messages({
+    "string.empty": "Message cannot be empty",
+    "string.min": "Message should be at least 10 characters long",
+    "any.required": "Message is required",
+  }),
 });
 
 const issueSchema = Joi.object({
@@ -630,6 +641,7 @@ module.exports = {
   changePasswordSchema,
   verifyEmailSchema,
   updateUserSchema,
+  contactUsSchema,
 
   requestSchema,
   issueSchema,
