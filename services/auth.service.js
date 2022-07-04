@@ -200,25 +200,6 @@ const forgotPassword = async (data) => {
     "Your reset verification code has been sent On Your Email"
   );
 };
-const verifyResetUser = async (data) => {
-  const { resetCode } = data;
-  // jwt.verify(
-  //     resetLink,
-  //     process.env.JWT_TOKEN_KEY
-  // );
-  const response = validate.verifyEmailSchema.validate({
-    verifyEmailToken: resetCode,
-  });
-  if (typeof response.error !== "undefined") {
-    return createResponse(response);
-  }
-  const user = await User.findOne({ resetVerifyToken: resetCode });
-  if (!user) throw new BaseError("Invalid token", 404);
-
-  return formatResponse(201, "Success", "User verified Successfully", {
-    resetCode,
-  });
-};
 
 const resetPassword = async (data) => {
   const { resetCode, newPassword } = data;
@@ -253,6 +234,5 @@ module.exports = {
   changePassword,
   forgotPassword,
   resetPassword,
-  userPlan,
-  verifyResetUser,
+  userPlan
 };

@@ -1,119 +1,180 @@
-const {register, login, verifyEmail,changePassword,forgotPassword,resetPassword,userPlan,verifyResetUser} = require("./auth.service")
-const {wellComeEmail} = require("./mail.service.js")
-const {insertCategories, findRequested} = require("./category.service")
-const {insertRequest,getRequests,updateRequestByLandlord,deleteRequestByLandlord} = require("./request.service")
-const {insertIssues, getIssues} = require("./issue.service")
-const {addProperty,getPropertiesByLandlord,updateProperty,deletePropertyByLandlord,getPropertyDetailById} = require("./property.service")
-const {createPlan,getPlans} = require("./plan.service")
-const {addContact,getTenantsByLandlord,getProfessionalsByLandlord,updateContact,getContactsByServicePro,getProfessionalDetailById,getTenantDetailById} = require("./contact.service")
-const {addListing,getListingByLandlord,updateListing} = require("./listing.service")
-const {addLease,getLeaseByLandlord} = require("./lease.service")
-const {insertApplication, getApplication,getApplicationDetailById,updateApplication,deleteApplication,getApplicationByTenant} = require("./application.service")
-const {insertReminder,getReminders,updateReminder,deleteReminder,getReminderDetailById} = require("./reminder.service.js")
-const {insertTask,getTasks,updateTask,deleteTask} = require("./task.service.js")
-const {addTransaction,getTransaction,updateTransaction,deleteTransaction,getRecurringTransaction,getTransactionDetailById} = require("./accounting.service.js")
-
+const {
+  register,
+  login,
+  verifyEmail,
+  changePassword,
+  forgotPassword,
+  resetPassword,
+  userPlan,
+} = require("./auth.service");
+const { updateUser } = require("./user.service");
+const { wellComeEmail } = require("./mail.service.js");
+const { insertCategories, findRequested } = require("./category.service");
+const {
+  insertRequest,
+  getRequests,
+  updateRequestByLandlord,
+  deleteRequestByLandlord,
+} = require("./request.service");
+const { insertIssues, getIssues } = require("./issue.service");
+const {
+  addProperty,
+  getPropertiesByLandlord,
+  updateProperty,
+  deletePropertyByLandlord,
+  getPropertyDetailById,
+} = require("./property.service");
+const { createPlan, getPlans } = require("./plan.service");
+const {
+  addContact,
+  getTenantsByLandlord,
+  getProfessionalsByLandlord,
+  updateContact,
+  getContactsByServicePro,
+  getProfessionalDetailById,
+  getTenantDetailById,
+} = require("./contact.service");
+const {
+  addListing,
+  getListingByLandlord,
+  updateListing,
+} = require("./listing.service");
+const { addLease, getLeaseByLandlord } = require("./lease.service");
+const {
+  insertApplication,
+  getApplication,
+  getApplicationDetailById,
+  updateApplication,
+  deleteApplication,
+  getApplicationByTenant,
+} = require("./application.service");
+const {
+  insertReminder,
+  getReminders,
+  updateReminder,
+  deleteReminder,
+  getReminderDetailById,
+} = require("./reminder.service.js");
+const {
+  insertTask,
+  getTasks,
+  updateTask,
+  deleteTask,
+} = require("./task.service.js");
+const {
+  addTransaction,
+  getTransaction,
+  updateTransaction,
+  deleteTransaction,
+  getRecurringTransaction,
+  getTransactionDetailById,
+} = require("./accounting.service.js");
 
 const mailService = {
-    wellComeEmail
-}
+  wellComeEmail,
+};
 const categoryService = {
-    insertCategories,
-    findRequested
-}
+  insertCategories,
+  findRequested,
+};
 const requestService = {
-    insertRequest,
-    getRequests,
-    updateRequestByLandlord,
-    deleteRequestByLandlord
-}
+  insertRequest,
+  getRequests,
+  updateRequestByLandlord,
+  deleteRequestByLandlord,
+};
 const issueService = {
-    insertIssues,
-    getIssues
-}
+  insertIssues,
+  getIssues,
+};
 const authService = {
-    register,
-    login,
-    verifyEmail,
-    changePassword,
-    forgotPassword,
-    resetPassword,
-    userPlan,
-    verifyResetUser
-}
+  register,
+  login,
+  verifyEmail,
+  changePassword,
+  forgotPassword,
+  resetPassword,
+  userPlan,
+};
+
+const userService = {
+  updateUser,
+};
+
 const propertyService = {
-    addProperty,
-    getPropertiesByLandlord,
-    updateProperty,
-    deletePropertyByLandlord,
-    getPropertyDetailById
-}
+  addProperty,
+  getPropertiesByLandlord,
+  updateProperty,
+  deletePropertyByLandlord,
+  getPropertyDetailById,
+};
 const planService = {
-    createPlan,
-    getPlans
-}
+  createPlan,
+  getPlans,
+};
 const contactService = {
-    addContact,
-    getTenantsByLandlord,
-    getProfessionalsByLandlord,
-    updateContact,
-    getContactsByServicePro,
-    getProfessionalDetailById,
-    getTenantDetailById
-}
+  addContact,
+  getTenantsByLandlord,
+  getProfessionalsByLandlord,
+  updateContact,
+  getContactsByServicePro,
+  getProfessionalDetailById,
+  getTenantDetailById,
+};
 const listingService = {
-    addListing,
-    getListingByLandlord,
-    updateListing
-}
+  addListing,
+  getListingByLandlord,
+  updateListing,
+};
 const leaseService = {
-    addLease,
-    getLeaseByLandlord
-}
+  addLease,
+  getLeaseByLandlord,
+};
 
 const applicationService = {
-    insertApplication,
-    getApplication,
-    updateApplication,
-    deleteApplication,
-    getApplicationByTenant,
-    getApplicationDetailById
-}
+  insertApplication,
+  getApplication,
+  updateApplication,
+  deleteApplication,
+  getApplicationByTenant,
+  getApplicationDetailById,
+};
 const reminderService = {
-    insertReminder,
-    getReminders,
-    updateReminder,
-    deleteReminder,
-    getReminderDetailById
-}
+  insertReminder,
+  getReminders,
+  updateReminder,
+  deleteReminder,
+  getReminderDetailById,
+};
 const taskService = {
-    insertTask,
-    getTasks,
-    updateTask,
-    deleteTask
-}
+  insertTask,
+  getTasks,
+  updateTask,
+  deleteTask,
+};
 const accountingService = {
-    addTransaction,
-    getTransaction,
-    updateTransaction,
-    deleteTransaction,
-    getRecurringTransaction,
-    getTransactionDetailById
-}
+  addTransaction,
+  getTransaction,
+  updateTransaction,
+  deleteTransaction,
+  getRecurringTransaction,
+  getTransactionDetailById,
+};
 
 module.exports = {
-    authService,
-    mailService,
-    categoryService,
-    requestService,
-    issueService,
-    propertyService,
-    planService,
-    contactService,
-    listingService,
-    leaseService,
-    applicationService,
-    reminderService,
-    taskService,
-    accountingService
-}
+  authService,
+  userService,
+  mailService,
+  categoryService,
+  requestService,
+  issueService,
+  propertyService,
+  planService,
+  contactService,
+  listingService,
+  leaseService,
+  applicationService,
+  reminderService,
+  taskService,
+  accountingService,
+};
