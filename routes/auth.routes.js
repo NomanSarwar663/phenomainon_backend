@@ -7,7 +7,6 @@ router.post("/login", authController.login);
 router.post("/verify-email", authController.verifyEmail);
 router.patch("/change-password",requireSignin, authController.changePassword);
 router.post("/forgot-password", authController.forgotPassword);
-router.post("/verify-reset-user", authController.verifyResetUser);
 router.patch("/reset-password", authController.resetPassword);
 router.patch("/user-plan",requireSignin, authController.userPlan);
 

@@ -30,7 +30,7 @@ async function login(req, res) {
 }
 async function changePassword(req, res) {
     try {
-        const response = await authService.changePassword(req.body,req.user._id);
+        const response = await authService.changePassword(req.body,req.user.user_id);
         if (response) {
             return res
                 .status(response.statusCode)
@@ -43,7 +43,7 @@ async function changePassword(req, res) {
 }
 async function userPlan(req, res) {
     try {
-        const response = await authService.userPlan(req.body,req.user._id);
+        const response = await authService.userPlan(req.body,req.user.user_id);
         if (response) {
             return res
                 .status(response.statusCode)
@@ -80,19 +80,6 @@ async function resetPassword(req, res) {
         res.status(statusCode || 400).json(formatResponse(statusCode || 400,"error", message));
     }
 }
-async function verifyResetUser(req, res) {
-    try {
-        const response = await authService.verifyResetUser(req.body);
-        if (response) {
-            return res
-                .status(response.statusCode)
-                .json(response);
-        }
-    } catch (error) {
-        const {message, statusCode} = error;
-        res.status(statusCode || 400).json(formatResponse(statusCode || 400,"error", message));
-    }
-}
 
 async function verifyEmail(req,res) {
     try {
@@ -108,6 +95,4 @@ async function verifyEmail(req,res) {
     }
 }
 
-
-
-module.exports = {register, login, verifyEmail,changePassword,forgotPassword,resetPassword,userPlan,verifyResetUser}
+module.exports = {register, login, verifyEmail,changePassword,forgotPassword,resetPassword,userPlan}
