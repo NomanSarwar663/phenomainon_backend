@@ -11,7 +11,7 @@ async function uploadToBucket(files,owner) {
     })
     const data = {
         owner,
-        type,
+        type:type[0],
         path
     }
     await Bucket.create(data);
