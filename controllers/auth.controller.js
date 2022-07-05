@@ -111,6 +111,7 @@ async function googleCallback(req, res) {
 
 async function facebookCallback(req, res) {
     try {
+      console.log("heelo")
       res.redirect('http://localhost:8000/AuthPage')
     } catch (error) {
       const { message, statusCode } = error;

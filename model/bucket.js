@@ -6,7 +6,7 @@ const bucketSchema = new mongoose.Schema({
         ref: "Leases",
         default: null,
     },
-    type: {type: String, enum: ["Avatar", "IncidentImage","IncidentReport","phenomainon"],required: true},
+    type: {type: String, enum: ["IncidentImage","Incidentfiles","phenomainon"],required: true},
     path: { type: Array, default: null }
 }, {timestamps: true});
 
