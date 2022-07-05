@@ -26,7 +26,6 @@ module.exports.fileUpload = multer({
         bucket: process.env.BUCKET_NAME,
         key: function (req, file, cb) {
             const directory = file.fieldname;
-            console.log(directory)
             const filePath = directory+"/"+ file.originalname;
             cb(null, filePath)
         }

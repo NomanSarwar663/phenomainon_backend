@@ -98,13 +98,9 @@ async function verifyEmail(req, res) {
 }
 
 
-async function googleSignin(req, res) {
+async function googleCallback(req, res) {
     try {
-      const response = await authService.googleSignin(req.body);
-      if (response) {
-        return res.status(response.statusCode).json(response);
-      }
-      // return res.status(200).json(formatResponse("success", "Email verified successfully"))
+      res.redirect('http://localhost:8000/AuthPage')
     } catch (error) {
       const { message, statusCode } = error;
       res
@@ -113,12 +109,9 @@ async function googleSignin(req, res) {
     }
   }
 
-async function facebookSignin(req, res) {
+async function facebookCallback(req, res) {
     try {
-      const response = await authService.facebookSignin(req.body);
-      if (response) {
-        return res.status(response.statusCode).json(response);
-      }
+      res.redirect('http://localhost:8000/AuthPage')
     } catch (error) {
       const { message, statusCode } = error;
       res
@@ -135,6 +128,6 @@ module.exports = {
   forgotPassword,
   resetPassword,
   verifyResetUser,
-  googleSignin,
-  facebookSignin,
+  googleCallback,
+  facebookCallback,
 };

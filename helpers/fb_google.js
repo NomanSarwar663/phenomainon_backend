@@ -1,4 +1,5 @@
 const passport = require('passport');
+const axios = require('axios');
 const GoogleStrategy = require('passport-google-oauth').OAuth2Strategy;
 const FacebookStrategy  =  require('passport-facebook').Strategy;
 

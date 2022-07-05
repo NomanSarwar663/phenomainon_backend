@@ -226,12 +226,7 @@ const resetPassword = async (data) => {
   return formatResponse(201, "Success", "Password Reset Successfully");
 };
 
-const googleSignin = async () => {
-  passport.authenticate("google", { scope: ["profile", "email"] });
-};
-const facebookSignin = async (data) => {
-  passport.authenticate("facebook", { scope: "email" });
-};
+
 
 module.exports = {
   register,
@@ -241,6 +236,5 @@ module.exports = {
   forgotPassword,
   resetPassword,
   verifyResetUser,
-  googleSignin,
-  facebookSignin
+
 };
