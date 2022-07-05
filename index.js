@@ -11,6 +11,9 @@ const port = process.env.PORT || API_PORT;
 const bucketRoutes = require('./routes/bucket.route')
 const authRoutes = require('./routes/auth.routes')
 
+app.set('views',path.join(__dirname, 'temp'))
+app.set('view engine', 'ejs')
+
 app.use(express.json());
 app.use(cors());
 

@@ -1,3 +1,4 @@
+require('../helpers/fb_google')
 const { createResponse, formatResponse } = require("../helpers/utility");
 const validate = require("../helpers/validationSchema");
 const { BaseError } = require("../helpers/ErrorHandling");
@@ -225,7 +226,7 @@ const resetPassword = async (data) => {
   return formatResponse(201, "Success", "Password Reset Successfully");
 };
 
-const googleSignin = async (data) => {
+const googleSignin = async () => {
   passport.authenticate("google", { scope: ["profile", "email"] });
 };
 const facebookSignin = async (data) => {
