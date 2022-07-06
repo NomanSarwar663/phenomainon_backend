@@ -8,6 +8,7 @@ const jwt = require("jsonwebtoken");
 const Stripe = require("../helpers/stripeConnect");
 const { wellComeEmail } = require("./mail.service");
 const passport = require("passport");
+const {mail} = require('./mail.service')
 
 async function register(data) {
   const { firstName, lastName, email, password } = data;
@@ -50,15 +51,15 @@ async function register(data) {
     // role,
     // plan
   });
-
-  wellComeEmail({
+  await mail(
     firstName,
     lastName,
     email,
-    emailVerifyToken,
-    verifyEmailLink: `${process.env.APP_URL}/frontend-url`,
-  });
-
+    message=`Please Verify your Email
+             /frontend-url
+             Your code is ${emailVerifyToken}`,
+    subject='Email Verification',
+    )
   return formatResponse(
     201,
     "Success",

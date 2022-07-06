@@ -1,5 +1,6 @@
 const {uploadToBucket} = require("./bucket.service.js")
 const {register, login, verifyEmail,changePassword,forgotPassword,resetPassword,verifyResetUser} = require("./auth.service")
+const { sendMessage } = require("./contactus.service");
 
 const bucketService = {
     uploadToBucket
@@ -13,7 +14,11 @@ const authService = {
     resetPassword,
     verifyResetUser,
 }
+const contactUsService = {
+    sendMessage,
+  };
 module.exports = {
     bucketService,
-    authService
+    authService,
+    contactUsService
 }

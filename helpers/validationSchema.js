@@ -64,11 +64,28 @@ const updateUserSchema = Joi.object({
     }),
 });
 
+const contactUsSchema = Joi.object({
+    firstName: validationValues.firstName,
+    lastName: validationValues.lastName,
+    email: validationValues.email,
+    message: Joi.string().required().messages({
+      "string.empty": "Message cannot be empty",
+      "string.min": "Message should be at least 10 characters long",
+      "any.required": "Message is required",
+    }),
+    subject: Joi.string().required().messages({
+        "string.empty": "Message cannot be empty",
+        "string.min": "Message should be at least 10 characters long",
+        "any.required": "Message is required",
+      }),
+  });
+  
 
 /**
  * wrap all validation schemas with validate object
  */
 module.exports = {
     registerUserSchema,
-    updateUserSchema
+    updateUserSchema,
+    contactUsSchema
 };
