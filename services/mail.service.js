@@ -1,7 +1,7 @@
 const mailgun = require("mailgun-js");
 const mg = mailgun({
-    apiKey: "bef1609fb6b429c87cf7b5275d4e0058-1b8ced53-8310e18e", 
-    domain: "sandbox764d90c25d6d470795220a037881f4b5.mailgun.org"
+    apiKey: process.env.EMAIL_APIKEY, 
+    domain: process.env.EMAIL_APIDOMAIN
 });
 
 async function mail(firstName, lastName, email, message,subject){
