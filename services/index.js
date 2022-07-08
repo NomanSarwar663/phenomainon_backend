@@ -29,15 +29,6 @@ const {
 } = require("./property.service");
 const { createPlan, getPlans } = require("./plan.service");
 const {
-  addContact,
-  getTenantsByLandlord,
-  getProfessionalsByLandlord,
-  updateContact,
-  getContactsByServicePro,
-  getProfessionalDetailById,
-  getTenantDetailById,
-} = require("./contact.service");
-const {
   addListing,
   getListingByLandlord,
   updateListing,
@@ -123,15 +114,6 @@ const planService = {
   createPlan,
   getPlans,
 };
-const contactService = {
-  addContact,
-  getTenantsByLandlord,
-  getProfessionalsByLandlord,
-  updateContact,
-  getContactsByServicePro,
-  getProfessionalDetailById,
-  getTenantDetailById,
-};
 const listingService = {
   addListing,
   getListingByLandlord,
@@ -183,7 +165,6 @@ module.exports = {
   issueService,
   propertyService,
   planService,
-  contactService,
   listingService,
   leaseService,
   applicationService,
