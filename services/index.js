@@ -9,6 +9,7 @@ const {
 } = require("./auth.service");
 const { updateUser } = require("./user.service");
 const { sendMessage } = require("./contactus.service");
+const { reportIncident } = require("./report.service");
 
 const { wellComeEmail } = require("./mail.service.js");
 const { insertCategories, findRequested } = require("./category.service");
@@ -27,15 +28,6 @@ const {
   getPropertyDetailById,
 } = require("./property.service");
 const { createPlan, getPlans } = require("./plan.service");
-const {
-  addContact,
-  getTenantsByLandlord,
-  getProfessionalsByLandlord,
-  updateContact,
-  getContactsByServicePro,
-  getProfessionalDetailById,
-  getTenantDetailById,
-} = require("./contact.service");
 const {
   addListing,
   getListingByLandlord,
@@ -107,6 +99,10 @@ const contactUsService = {
   sendMessage,
 };
 
+const reportService = {
+  reportIncident,
+};
+
 const propertyService = {
   addProperty,
   getPropertiesByLandlord,
@@ -117,15 +113,6 @@ const propertyService = {
 const planService = {
   createPlan,
   getPlans,
-};
-const contactService = {
-  addContact,
-  getTenantsByLandlord,
-  getProfessionalsByLandlord,
-  updateContact,
-  getContactsByServicePro,
-  getProfessionalDetailById,
-  getTenantDetailById,
 };
 const listingService = {
   addListing,
@@ -172,12 +159,12 @@ module.exports = {
   userService,
   mailService,
   contactUsService,
+  reportService,
   categoryService,
   requestService,
   issueService,
   propertyService,
   planService,
-  contactService,
   listingService,
   leaseService,
   applicationService,

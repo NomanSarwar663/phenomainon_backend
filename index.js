@@ -11,16 +11,16 @@ const port = process.env.PORT || API_PORT;
 const authRoutes = require("./routes/auth.routes");
 const userRoutes = require("./routes/user.routes");
 const contactUsRoutes = require("./routes/contactus.routes");
+const reportRoutes = require("./routes/report.routes");
+
 const requestRoutes = require("./routes/request.routes");
 const categoriesRoute = require("./routes/categories.routes");
 const issuesRoute = require("./routes/issue.routes");
 const propertyRoute = require("./routes/property.routes");
 const planRoute = require("./routes/plan.routes");
-const contactRoute = require("./routes/contact.routes");
 const listingRoute = require("./routes/listing.routes");
 const leaseRoute = require("./routes/lease.route");
 const applicationRoute = require("./routes/application.routes");
-const reminderRoute = require("./routes/reminder.routes");
 const taskRoute = require("./routes/task.routes");
 const accountingRoute = require("./routes/accounting.routes");
 
@@ -34,16 +34,16 @@ app.use("/uploads", express.static("uploads"));
 app.use(authRoutes);
 app.use(userRoutes);
 app.use(contactUsRoutes);
+app.use(reportRoutes);
+
 app.use(requestRoutes);
 app.use(categoriesRoute);
 app.use(issuesRoute);
 app.use(propertyRoute);
 app.use(planRoute);
-app.use(contactRoute);
 app.use(listingRoute);
 app.use(leaseRoute);
 app.use(applicationRoute);
-app.use(reminderRoute);
 app.use(taskRoute);
 app.use(accountingRoute);
 
