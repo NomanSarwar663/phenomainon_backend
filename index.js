@@ -21,7 +21,6 @@ const planRoute = require("./routes/plan.routes");
 const listingRoute = require("./routes/listing.routes");
 const leaseRoute = require("./routes/lease.route");
 const applicationRoute = require("./routes/application.routes");
-const reminderRoute = require("./routes/reminder.routes");
 const taskRoute = require("./routes/task.routes");
 const accountingRoute = require("./routes/accounting.routes");
 
@@ -45,7 +44,6 @@ app.use(planRoute);
 app.use(listingRoute);
 app.use(leaseRoute);
 app.use(applicationRoute);
-app.use(reminderRoute);
 app.use(taskRoute);
 app.use(accountingRoute);
 
