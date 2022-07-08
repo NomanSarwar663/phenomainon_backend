@@ -9,6 +9,7 @@ const {
 } = require("./auth.service");
 const { updateUser } = require("./user.service");
 const { sendMessage } = require("./contactus.service");
+const { reportIncident } = require("./report.service");
 
 const { wellComeEmail } = require("./mail.service.js");
 const { insertCategories, findRequested } = require("./category.service");
@@ -107,6 +108,10 @@ const contactUsService = {
   sendMessage,
 };
 
+const reportService = {
+  reportIncident,
+};
+
 const propertyService = {
   addProperty,
   getPropertiesByLandlord,
@@ -172,6 +177,7 @@ module.exports = {
   userService,
   mailService,
   contactUsService,
+  reportService,
   categoryService,
   requestService,
   issueService,

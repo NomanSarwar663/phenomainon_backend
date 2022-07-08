@@ -11,6 +11,8 @@ const port = process.env.PORT || API_PORT;
 const authRoutes = require("./routes/auth.routes");
 const userRoutes = require("./routes/user.routes");
 const contactUsRoutes = require("./routes/contactus.routes");
+const reportRoutes = require("./routes/report.routes");
+
 const requestRoutes = require("./routes/request.routes");
 const categoriesRoute = require("./routes/categories.routes");
 const issuesRoute = require("./routes/issue.routes");
@@ -34,6 +36,8 @@ app.use("/uploads", express.static("uploads"));
 app.use(authRoutes);
 app.use(userRoutes);
 app.use(contactUsRoutes);
+app.use(reportRoutes);
+
 app.use(requestRoutes);
 app.use(categoriesRoute);
 app.use(issuesRoute);
