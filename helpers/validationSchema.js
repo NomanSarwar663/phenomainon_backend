@@ -79,7 +79,22 @@ const contactUsSchema = Joi.object({
         "any.required": "Message is required",
       }),
   });
-  
+const news = Joi.object({
+  title : Joi.string().required().messages({
+    "string.empty": "Title  cannot be empty",
+    "string.min": "Title  should be at least 10 characters long",
+    "any.required": "Title  is required",
+  }),
+    description: Joi.string().required().messages({
+      "string.empty": "Description cannot be empty",
+      "string.min": "Description should be at least 250 characters long",
+      "any.required": "Description is required",
+    }),
+    attachments : Joi.string().optional().messages({
+      "string.empty": `attachments Link cannot be empty`,
+      "any.required": `attachments Link is required`,
+    }),
+})
 const reportIncident = Joi.object({
     createdBy: Joi.string().min(0).required().messages({
       "any.required": `Created By is required`,
@@ -316,5 +331,6 @@ module.exports = {
     registerUserSchema,
     updateUserSchema,
     contactUsSchema,
-    reportIncident
+    reportIncident,
+    news
 };
