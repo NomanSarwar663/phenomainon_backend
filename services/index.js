@@ -3,6 +3,7 @@ const {register, login, verifyEmail,changePassword,forgotPassword,resetPassword,
 const { sendMessage } = require("./contactus.service");
 const { reportIncident } = require("./report.service")
 const { newsUpload,  newsBlogList,newsBlogDetail } = require("./news.service")
+const {platformMaterialUpload } = require("./platformMaterial.service")
 const bucketService = {
     uploadToBucket
 }
@@ -27,7 +28,9 @@ const newsService = {
     newsBlogList,
     newsBlogDetail
 }
-  
+const platformMaterialService = {
+    platformMaterialUpload
+}  
 
   
 
@@ -36,5 +39,5 @@ module.exports = {
     authService,
     contactUsService,
     reportService,
-    newsService
+    platformMaterialService
 }

@@ -9,9 +9,9 @@ async function newsUpload(files,body) {
         return value.location
     })
     const data = {
-        Title: body.title,
-        Title: body.description,
-        path
+        title: body.title,
+        description: body.description,
+        attachments:path
     }
     const response = await validate.news.validate(data)
     if (typeof response.error !== 'undefined') {

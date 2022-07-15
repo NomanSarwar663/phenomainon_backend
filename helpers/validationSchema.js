@@ -95,6 +95,19 @@ const news = Joi.object({
       "any.required": `attachments Link is required`,
     }),
 })
+
+const platformMaterial = Joi.object({
+  displayName : Joi.string().required().messages({
+    "string.empty": "displayName cannot be empty",
+    "string.min": "displayName should be at least 10 characters long",
+    "any.required": "displayName  is required",
+  }),
+  attachments : Joi.string().optional().messages({
+      "string.empty": `attachments Link cannot be empty`,
+      "any.required": `attachments Link is required`,
+    }),
+})
+
 const reportIncident = Joi.object({
     createdBy: Joi.string().min(0).required().messages({
       "any.required": `Created By is required`,
