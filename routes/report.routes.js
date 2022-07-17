@@ -5,5 +5,7 @@ const cpUpload = fileUpload.fields([{name: 'IncidentImage', maxCount: 6} ,{name:
 const { requireSignin } = require('../middleware/authorization')
 
 router.post("/report-incident",requireSignin,cpUpload,reportController.reportIncident);
+router.post("/incident-data",requireSignin,cpUpload,reportController.countries);
+router.post("/incident-data/:country",requireSignin,cpUpload,reportController.countryIncident);
 
 module.exports = router;

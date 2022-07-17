@@ -1,7 +1,7 @@
 const {uploadToBucket} = require("./bucket.service.js")
 const {register, login, verifyEmail,changePassword,forgotPassword,resetPassword,verifyResetUser} = require("./auth.service")
 const { sendMessage } = require("./contactus.service");
-const { reportIncident } = require("./report.service")
+const { reportIncident, countries, countryIncident } = require("./report.service")
 const { newsUpload,  newsBlogList,newsBlogDetail } = require("./news.service")
 const {platformMaterialUpload } = require("./platformMaterial.service")
 const bucketService = {
@@ -21,7 +21,9 @@ const contactUsService = {
   };
 
 const reportService = {
-    reportIncident
+    reportIncident,
+    countries,
+    countryIncident
 }
 const newsService = {
     newsUpload,

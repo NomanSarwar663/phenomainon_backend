@@ -35,6 +35,27 @@ async function reportIncident(data, createdBy , files) {
   return formatResponse(201, "success", "Inserted successfully");
 }
 
+async function countries() {
+  const countries = await reportedIncident.find({}).distinct('countryName')
+  
+  if (user.length==0) {
+      throw new BaseError(`user does not exist`, 404)
+  }
+  return formatResponse(200,"Success", "", {countries})
+}
+
+async function countryIncident(_country) {
+  const countries = await reportedIncident.find({_country},'countryName state city longtitude latitude')
+  
+  if (user.length==0) {
+      throw new BaseError(`user does not exist`, 404)
+  }
+  return formatResponse(200,"Success", "", {countries})
+}
+
+
 module.exports = {
   reportIncident,
+  countries,
+  countryIncident
 };
