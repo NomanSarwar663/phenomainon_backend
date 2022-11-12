@@ -50,19 +50,19 @@ const {
   deleteApplication,
   getApplicationByTenant,
 } = require("./application.service");
-const {
-  insertReminder,
-  getReminders,
-  updateReminder,
-  deleteReminder,
-  getReminderDetailById,
-} = require("./reminder.service.js");
-const {
-  insertTask,
-  getTasks,
-  updateTask,
-  deleteTask,
-} = require("./task.service.js");
+// const {
+//   insertReminder,
+//   getReminders,
+//   updateReminder,
+//   deleteReminder,
+//   getReminderDetailById,
+// } = require("./reminder.service.js");
+// const {
+//   insertTask,
+//   getTasks,
+//   updateTask,
+//   deleteTask,
+// } = require("./task.service.js");
 const {
   addTransaction,
   getTransaction,
