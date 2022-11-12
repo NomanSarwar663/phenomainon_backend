@@ -145,13 +145,13 @@ const applicationService = {
   getApplicationByTenant,
   getApplicationDetailById,
 };
-const reminderService = {
-  insertReminder,
-  getReminders,
-  updateReminder,
-  deleteReminder,
-  getReminderDetailById,
-};
+// const reminderService = {
+//   insertReminder,
+//   getReminders,
+//   updateReminder,
+//   deleteReminder,
+//   getReminderDetailById,
+// };
 const taskService = {
   insertTask,
   getTasks,
@@ -181,7 +181,7 @@ module.exports = {
   listingService,
   leaseService,
   applicationService,
-  reminderService,
+  // reminderService,
   taskService,
   accountingService,
 };
